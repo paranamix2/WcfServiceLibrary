@@ -8,7 +8,7 @@ namespace Domain.Repository.Interface
 
         TEntity Save(TEntity instance);
         void Update(TEntity instance);
-        void Delete(TEntity instance);
+        void Remove(TEntity instance);
 
         #endregion
 

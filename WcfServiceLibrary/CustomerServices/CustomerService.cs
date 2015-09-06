@@ -9,11 +9,11 @@ namespace WcfServiceLibrary.CustomerServices
 {
     public class CustomerService : ICustomerService
     {
-        public IRepository<Customer> Repository { get; set; } 
+        public IRepositoryLocator Locator { get; set; } 
 
         public CustomerDto CreateNewCustomer(CustomerDto dto)
         {
-            var customer = Customer.Create(Repository, dto);
+            var customer = Customer.Create(Locator, dto);
             return new CustomerDto
             {
                 CustomerId = customer.Id,

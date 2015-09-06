@@ -3,16 +3,15 @@ using Domain.Repository.Interface;
 
 namespace Domain.Entities
 {
-    public class Customer
+    public class Customer : EntityBase
     {
         protected Customer() { }
 
-        public long Id { get; private set; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public string Telephone { get; private set; }
 
-        public static Customer Create(IRepository<Customer> repository, CustomerDto operation)
+        public static Customer Create(IRepositoryLocator locator, CustomerDto operation)
         {
             var instance = new Customer
             {
@@ -21,7 +20,7 @@ namespace Domain.Entities
                 Telephone = operation.Telephone
             };
 
-            repository.Save(instance);
+            locator.Save(instance);
             return instance;
         }
     }
