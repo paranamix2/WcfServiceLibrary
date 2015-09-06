@@ -23,5 +23,18 @@ namespace Domain.Entities
             locator.Save(instance);
             return instance;
         }
+
+        public void Update(IRepositoryLocator locator, CustomerDto operation)
+        {
+            FirstName = operation.FirstName;
+            LastName = operation.LastName;
+            Telephone = operation.Telephone;
+            locator.Update(this);
+        }
+
+        private void UpdateValidate(IRepositoryLocator locator, CustomerDto operation)
+        {
+            return;
+        }
     }
 }

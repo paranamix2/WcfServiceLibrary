@@ -17,6 +17,6 @@ namespace Common.ServiceContract
         CustomerDto UpdateCustomer(CustomerDto customer);
 
         [OperationContract]
-        List<CustomerDto> FindAll();
+        CustomerDtos FindAll();
     }
 }
