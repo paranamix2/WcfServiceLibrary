@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using Common.Dto.Customer;
+using Common.ServiceContract;
 using Domain.Entities;
 using Domain.Repository.Interface;
-using WcfServiceLibrary.CustomerServices.Interface;
 
-namespace WcfServiceLibrary.CustomerServices
+namespace Domain.Services
 {
     public class CustomerService : ICustomerService
     {
-        public IRepositoryLocator Locator { get; set; } 
+        public IRepositoryLocator Repository { get; set; } 
 
         public CustomerDto CreateNewCustomer(CustomerDto dto)
         {
-            var customer = Customer.Create(Locator, dto);
+            var customer = Customer.Create(Repository, dto);
             return new CustomerDto
             {
                 CustomerId = customer.Id,
@@ -25,10 +25,17 @@ namespace WcfServiceLibrary.CustomerServices
         
         public CustomerDto GetById(long id)
         {
-            throw new NotImplementedException();
+            var customer = Repository.GetById<Customer>(id);
+            return new CustomerDto
+            {
+                CustomerId = customer.Id,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+                Telephone = customer.Telephone
+            };
         }
 
-        public CustomerDto UpdateCustomer(CustomerDto customer)
+        public CustomerDto UpdateCustomer(CustomerDto dto)
         {
             throw new NotImplementedException();
         }

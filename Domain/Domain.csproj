@@ -48,6 +48,7 @@
     <Compile Include="Repository\Interface\IRepositoryLocator.cs" />
     <Compile Include="Repository\RepositoryEntityStore.cs" />
     <Compile Include="Repository\RepositoryLocatorBase.cs" />
+    <Compile Include="Services\CustomerService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

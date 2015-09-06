@@ -2,7 +2,7 @@
 using System.ServiceModel;
 using Common.Dto.Customer;
 
-namespace WcfServiceLibrary.CustomerServices.Interface
+namespace Common.ServiceContract
 {
     [ServiceContract]
     public interface ICustomerService
