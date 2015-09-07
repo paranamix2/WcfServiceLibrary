@@ -37,7 +37,7 @@ namespace Common.Message
 
         #region Public Methods
 
-        public void AddBusinessException(BusinessExceptionDto exception)
+        public void AddBusinessException(BusinessException exception)
         {
             _businessExceptionInstance = new BusinessExceptionDto(exception.ExceptionType, exception.Message, exception.StackTrace);
         }

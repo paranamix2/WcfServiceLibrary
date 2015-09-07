@@ -1,6 +1,8 @@
-﻿namespace Common.Dto.Customer
+﻿using Common.Message;
+
+namespace Common.Dto.Customer
 {
-    public class CustomerDto
+    public class CustomerDto : DtoBase
     {
         public long CustomerId { get; set; }
         public string FirstName { get; set; }

@@ -4,7 +4,7 @@ using System.Linq;
 using Domain.Entities.Interface;
 using Domain.Repository.Interface;
 
-namespace Domain.Repository
+namespace Naive.Repository
 {
     public class RepositoryEntityStore<TEntity> : IRepository<TEntity>
     {
