@@ -26,11 +26,10 @@ namespace Domain.Services
 
         public CustomerDto GetById(long id)
         {
-            var customer = Repository.GetById<Customer>(id);
-            return CustomerToDto(customer);
+            return ExecuteCommand(locator => GetByIdCommand(locator, id));
         }
 
-        public CustomerDto GetById(IRepositoryLocator locator, long id)
+        public CustomerDto GetByIdCommand(IRepositoryLocator locator, long id)
         {
             var customer = locator.GetById<Customer>(id);
             return CustomerToDto(customer);
@@ -38,12 +37,10 @@ namespace Domain.Services
 
         public CustomerDto UpdateCustomer(CustomerDto dto)
         {
-            var instance = Repository.GetById<Customer>(dto.CustomerId);
-            instance.Update(Repository, dto);
-            return CustomerToDto(instance);
+            return ExecuteCommand(locator => UpdateCustomerCommand(locator, dto));
         }
 
-        public CustomerDto UpdateCustomer(IRepositoryLocator locator, CustomerDto dto)
+        public CustomerDto UpdateCustomerCommand(IRepositoryLocator locator, CustomerDto dto)
         {
             var instance = locator.GetById<Customer>(dto.CustomerId);
             instance.Update(locator, dto);
@@ -52,15 +49,10 @@ namespace Domain.Services
 
         public CustomerDtos FindAll()
         {
-            var customers = Repository.FindAll<Customer>();
-            var result = new CustomerDtos {Customers = new List<CustomerDto>()};
-            if (!customers.Any())
-                return result;
-            customers.ToList().ForEach(c => result.Customers.Add(CustomerToDto(c)));
-            return result;
+            return ExecuteCommand(locator => FindAllCommand(locator));
         }
 
-        public CustomerDtos FindAll(IRepositoryLocator locator)
+        public CustomerDtos FindAllCommand(IRepositoryLocator locator)
         {
             var customers = locator.FindAll<Customer>();
             var result = new CustomerDtos {Customers = new List<CustomerDto>()};
