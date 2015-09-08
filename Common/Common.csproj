@@ -46,9 +46,9 @@
     <Compile Include="Dto\Customer\CustomerDtos.cs" />
     <Compile Include="Message\BusinessException.cs" />
     <Compile Include="Message\BusinessExceptionDto.cs" />
-    <Compile Include="Message\BusinessExceptionEnum.cs" />
+    <Compile Include="Message\Enums\BusinessExceptionEnum.cs" />
     <Compile Include="Message\BusinessWarning.cs" />
-    <Compile Include="Message\BusinessWarningEnum.cs" />
+    <Compile Include="Message\Enums\BusinessWarningEnum.cs" />
     <Compile Include="Message\DtoBase.cs" />
     <Compile Include="Message\DtoResponse.cs" />
     <Compile Include="Message\IDtoResponseEnvelop.cs" />
@@ -56,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceContract\ICustomerService.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

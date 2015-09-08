@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Common.Message;
 using Domain.Repository.Interface;
 using Domain.TransactionManager.Interface;
@@ -74,7 +70,7 @@ namespace Domain.TransactionManager
 
         protected virtual void Dispose(bool disposing)
         {
-            if (disposing) return;
+            if (!disposing) return;
             if (!IsDisposed && _isInTrans)
             {
                 Rollback();

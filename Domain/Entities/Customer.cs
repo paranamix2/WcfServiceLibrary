@@ -7,9 +7,9 @@ namespace Domain.Entities
     {
         protected Customer() { }
 
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public string Telephone { get; private set; }
+        public virtual string FirstName { get; private set; }
+        public virtual string LastName { get; private set; }
+        public virtual string Telephone { get; private set; }
 
         public static Customer Create(IRepositoryLocator locator, CustomerDto operation)
         {
@@ -26,6 +26,7 @@ namespace Domain.Entities
 
         public void Update(IRepositoryLocator locator, CustomerDto operation)
         {
+            UpdateValidate(locator, operation);
             FirstName = operation.FirstName;
             LastName = operation.LastName;
             Telephone = operation.Telephone;

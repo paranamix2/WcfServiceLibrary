@@ -1,4 +1,6 @@
-﻿namespace Common.Message
+﻿using Common.Message.Enums;
+
+namespace Common.Message
 {
     public class BusinessWarning
     {

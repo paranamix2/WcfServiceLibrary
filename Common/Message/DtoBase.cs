@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Common.Message
 {
     [DataContract]
-    public class DtoBase : IDtoResponseEnvelop
+    public abstract class DtoBase : IDtoResponseEnvelop
     {
         [DataMember]
         private readonly Response _responseInstance = new Response();
